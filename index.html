@@ -1,0 +1,297 @@
+<link rel="stylesheet" href="estilos.css">
+
+<div class="udo-signature-wrapper">
+    <div class="udo-form-section">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="margin: 0;">Generador de Firmas</h2>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <button onclick="clearUDOForm()" class="udo-btn-clear" title="Borrar todos los campos">
+                    🗑️ Limpiar
+                </button>
+                <button onclick="openHelpModal()" style="background-color: #1167a4; color: white; border: none; padding: 7px 12px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 12px; display: flex; align-items: center; gap: 5px; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                    Ayuda
+                </button>
+            </div>
+        </div>
+        <p class="udo-subtitle" style="margin-top: 5px;">Completa tus datos institucionales. La vista previa se actualizará automáticamente.</p>
+        
+        <div class="udo-form-group" style="margin-top: 15px;">
+            <label for="udo-name">Nombre y Apellido <span style="color: #E3122C;">*</span></label>
+            <input type="text" id="udo-name" placeholder="Ej. Juan Pérez González">
+        </div>
+        <div class="udo-form-group">
+            <label for="udo-job">Cargo o Profesión <span style="color: #E3122C;">*</span></label>
+            <input type="text" id="udo-job" placeholder="Ej. Enfermero Clínico">
+        </div>
+
+        <div class="udo-form-group">
+            <label for="udo-unit">Unidad / Servicio <span style="color: #E3122C;">*</span></label>
+            <input type="text" id="udo-unit" placeholder="Ej. Unidad de Paciente Crítico">
+        </div>
+
+        <div class="udo-form-group">
+            <label for="udo-category">Categoría Institucional <span style="color: #E3122C;">*</span></label>
+            <select id="udo-category" class="udo-select">
+                <option value="">Seleccione una categoría...</option>
+                <option value="Dirección">Dirección</option>
+                <option value="Subdirección">Subdirección</option>
+                <option value="Departamento">Departamento</option>
+                <option value="Subdepartamento">Subdepartamento</option>
+            </select>
+        </div>
+
+        <div class="udo-form-group">
+            <label for="udo-subcategory">Nombre de la Unidad <span style="color: #E3122C;">*</span></label>
+            <select id="udo-subcategory" class="udo-select" disabled>
+                <option value="">Primero seleccione la categoría...</option>
+            </select>
+        </div>
+        
+        <div style="margin-top: 15px; margin-bottom: 5px;">
+            <strong style="font-size: 13px; color: #a0a09f; font-family: Arial, sans-serif;">Redes de Contacto</strong>
+        </div>
+        <div style="display: flex; gap: 10px; width: 100%;">
+            <div class="udo-form-group" style="flex: 1; margin-bottom: 0;">
+                <label for="udo-anexo">Anexo <span style="color: #E3122C;">*</span></label>
+                <input type="text" id="udo-anexo" placeholder="Ej. 000000">
+            </div>
+            <div class="udo-form-group" style="flex: 2; margin-bottom: 0;">
+                <label for="udo-publica">Red Pública <span style="color: #E3122C;">*</span></label>
+                <input type="text" id="udo-publica" placeholder="Ej. (+56) 51 2000000">
+            </div>
+        </div>
+
+        <div class="udo-form-group" style="margin-top: 15px;">
+            <label for="udo-email">Correo Institucional <span style="color: #E3122C;">*</span></label>
+            <input type="email" id="udo-email" placeholder="Ej. juan.perez@redsalud.gob.cl">
+        </div>
+
+        <span style="font-size: 13px; color: #b3b3b283; display: block; padding-top: 1px;">Generado por la Unidad de Desarrollo Organizacional - HSP</span>
+    </div>
+
+    <div class="udo-preview-section">
+        <h2>Vista Previa</h2>     
+        <!-- CONTENEDOR ANCLA RELATIVO PARA LA PESTAÑA LATERAL -->
+        <div style="position: relative; width: 100%;">
+            
+            <div class="udo-preview-box">
+                <button type="button" onclick="toggleUDOZoom(true)" class="udo-zoom-btn" title="Inspeccionar firma de cerca">
+                    🔍 Inspeccionar Firma
+                </button>
+                
+                <button type="button" onclick="toggleUDOZoom(false)" class="udo-zoom-close-btn" title="Cerrar inspección">
+                    &times;
+                </button>
+
+                <div id="udo-signature-content" style="width: 100%;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; font-size: 14px; color: #333333; width: 100%; max-width: 550px; background-color: #ffffff;">
+                        <tr>
+                            <td style="vertical-align: middle; width: 130px;">
+                                <img src="https://raw.githubusercontent.com/hspudo-Develop/Repo_IMG_HSP_Coquimbo/refs/heads/main/base_firma.png" crossorigin="anonymous" alt="Logo HSP" width="130" style="display: block; border: none; width: 130px; max-width: 130px;">
+                            </td>
+                            
+                            <td style="vertical-align: middle; padding: 0 15px; width: 4px;" width="4">
+                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; background-color: #1167a4; width: 4px;" width="4">
+                                    <tr>
+                                        <td style="width: 4px; height: 110px; background-color: #1167a4; font-size: 0px; line-height: 0px; mso-line-height-rule: exactly;" width="4">&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <td style="vertical-align: middle; line-height: 1.15;">
+                                <strong style="font-family: Arial; font-weight: 900; color: #a0a09f; font-size: 18px; margin: 0; padding: 0;" id="udo-sig-name">Nombre Apellido</strong><br>
+                                <span style="font-family: Arial, sans-serif; color: #a0a09f; font-size: 12px; margin: 0; padding: 0;" id="udo-sig-job">Cargo / Profesión</span><br>
+                                <span style="font-family: Arial, sans-serif; color: #a0a09f; font-size: 12px; margin: 0; padding: 0;" id="udo-sig-unit">Unidad o Servicio</span><br>
+                                <span style="font-family: Arial, sans-serif; color: #a0a09f; font-size: 12px; margin: 0; padding: 0;" id="udo-sig-department">Subdirección o Departamento</span><br>
+
+                                <div style="height: 8px; line-height: 8px; font-size: 8px; margin: 0; padding: 0;">&nbsp;</div>
+                                
+                                <span style="font-family: Arial, sans-serif; font-size: 10px; color: #a0a09f; line-height: 1.35;">
+                                    <span style="font-family: Arial, sans-serif; color: #a0a09f;">Red Minsal:</span> <span id="udo-sig-anexo">000000</span> / <span style="font-family: Arial, sans-serif; color: #a0a09f;">Red Pública:</span> <span id="udo-sig-publica">(+56) 51 2000000</span><br>
+                                    <a href="https://www.hospitalcoquimbo.cl" target="_blank" style="font-family: Arial, sans-serif;color: #F6b01c; text-decoration: none; font-weight: bold; font-style: italic;">www.hospitalcoquimbo.cl</a><br>
+                                    Av. Videla S/N, Coquimbo.
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="udo-action-buttons">
+
+            <button class="udo-btn udo-btn-image" onclick="downloadSignatureAsImage()" id="btnImageUDO">
+                🖼️ Descargar Imagen
+            </button>
+            <button class="udo-btn udo-btn-email" onclick="sendUDOToEmail()" id="btnEmailUDO">
+                ✉️ Enviar a mi Correo
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="udo-side-widget">
+    <div class="udo-side-widget-handle">
+        <h1 style="font-family: Arial, sans-serif; font-size: 14px; margin: 0;">Página Principal HSP</h1>
+    </div>
+    <div class="udo-side-widget-content" style="border-radius: 0 !important; overflow: hidden;">
+    <a href="https://www.hospitalcoquimbo.cl" target="_blank" style="padding-right: 15px; border-radius: 0 !important; display: block;">
+        <img id="udo-sig-logo" src="https://raw.githubusercontent.com/hspudo-Develop/Repo_IMG_HSP_Coquimbo/refs/heads/main/base_firma.png" alt="Hospital San Pablo" width="100" style="display: block; width: 100px; height: auto; border: 0; border-radius: 0 !important;">
+    </a>
+</div>
+</div>
+
+<!-- =========================================================
+     📊 VENTANAS MODALES Y CAPAS DE SOPORTE TÉCNICO
+     ========================================================= -->
+
+<div id="udoHelpModal" class="udo-modal-overlay">
+    <div class="udo-modal-content">
+        <div class="udo-modal-header">
+            <div>
+                <h2>Centro de Ayuda</h2>
+                <p>Guía de uso rápido y soporte técnico para funcionarios</p>
+            </div>
+            <span class="udo-modal-close" onclick="closeHelpModal()">&times;</span>
+        </div>
+        
+        <div class="udo-modal-body">
+            <div class="udo-help-card">
+                <h3>🛠️ ¿Cómo configurar mi firma?</h3>
+                <div class="udo-steps-timeline">
+                    <div class="udo-step-item">
+                        <span class="udo-step-num">1</span>
+                        <p>Completa tus datos en el formulario de la izquierda.</p>
+                    </div>
+                    <div class="udo-step-item">
+                        <span class="udo-step-num">2</span>
+                        <p>Revisa la Vista Previa y haz clic en <b> "Inspeccionar Firma"</b> para verificar los detalles de cerca.</p>
+                    </div>
+                    <div class="udo-step-item">
+                        <span class="udo-step-num">3</span>
+                        <p>Haz clic en el botón de <b>"Copiar Firma"</b>.</p>
+                    </div>
+                    <div class="udo-step-item">
+                        <span class="udo-step-num">4</span>
+                        <p>Abre tu correo institucional (Zimbra u Outlook), ve a <b>Configuración> Firmas</b>.</p>
+                    </div>
+                    <div class="udo-step-item">
+                        <span class="udo-step-num">5</span>
+                        <p><b>Borra tu firma antigua</b> por completo, presiona Ctrl + V para <b>pegar la nueva</b> y guarda los cambios.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="udo-section-title">⚠️ Solución de Errores Comunes</h3>
+            
+            <div class="udo-help-grid">
+                <div class="udo-help-subcard" onclick="openErrorModal('logo')" title="Click para expandir solución">
+                    <h4>El logo no aparece en el correo</h4>
+                </div>
+                
+                <div class="udo-help-subcard" onclick="openErrorModal('order')" title="Click para expandir solución">
+                    <h4>La firma se ve desordenada</h4>
+                </div>
+                
+                <div class="udo-help-subcard" onclick="openErrorModal('delivery')" title="Click para expandir solución">
+                    <h4>No llega el correo de prueba</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="udo-modal-footer">
+            <div class="udo-support-info">
+                <span>📧 Soporte Técnico UDO:</span>
+                <a href="mailto:desarrolloorganizacional.hsp@redsalud.gob.cl">desarolloorganizacional.hsp@redsalud.gob.cl</a>
+            </div>
+            <button type="button" onclick="closeHelpModal()" class="udo-btn-close-modal">Entendido, Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<div id="udoErrorLogoModal" class="udo-modal-overlay udo-submodal">
+    <div class="udo-modal-content udo-error-content">
+        <div class="udo-modal-header udo-error-header">
+            <div>
+                <h2>🖼️ Detalle: El logo no aparece</h2>
+                <p>Problemas con la visualización de imágenes institucionales</p>
+            </div>
+            <span class="udo-modal-close" onclick="closeErrorModal('logo')">&times;</span>
+        </div>
+        <div class="udo-modal-body udo-error-body">
+            <p class="udo-large-text">
+                Los clientes de correo modernos (como Outlook o Zimbra) suelen bloquear las imágenes externas por motivos de seguridad informática para proteger tu cuenta.
+            </p>
+            <div class="udo-alert-box">
+                <strong>💡 Solución Paso a Paso:</strong>
+                <ol style="margin-top: 8px; padding-left: 20px; line-height: 1.6;">
+                    <li>Busca una barra de advertencia arriba de tu correo que diga: <i>"Se ha bloqueado la descarga de imágenes"</i> o <i>"Mostrar imágenes de este remitente"</i> y haz clic en aceptar.</li>
+                    <li>Si el problema persiste de forma definitiva en tu computador, utiliza nuestro botón secundario <b>"Descargar Imagén"</b>. Guardarás el código puro de la firma para cargarlo manualmente sin depender de la red externa.</li>
+                </ol>
+            </div>
+        </div>
+        <div class="udo-modal-footer">
+            <button type="button" onclick="closeErrorModal('logo')" class="udo-btn-close-modal">Volver a Ayuda</button>
+        </div>
+    </div>
+</div>
+
+<div id="udoErrorOrderModal" class="udo-modal-overlay udo-submodal">
+    <div class="udo-modal-content udo-error-content">
+        <div class="udo-modal-header udo-error-header">
+            <div>
+                <h2>📐 Detalle: Firma desordenada</h2>
+                <p>Problemas con líneas rotas o alineación del texto</p>
+            </div>
+            <span class="udo-modal-close" onclick="closeErrorModal('order')">&times;</span>
+        </div>
+        <div class="udo-modal-body udo-error-body">
+            <p class="udo-large-text">
+                Esto ocurre cuando quedan residuos de texto, espacios ocultos o firmas antiguas en la memoria del editor de tu cuenta de correo institucional.
+            </p>
+            <div class="udo-alert-box">
+                <strong>💡 Solución Paso a Paso:</strong>
+                <ol style="margin-top: 8px; padding-left: 20px; line-height: 1.6;">
+                    <li>Entra a la configuración de firma de tu correo electrónico.</li>
+                    <li>Selecciona todo el contenido existente dentro del cuadro de texto y **bórralo por completo** (debe quedar 100% vacío).</li>
+                    <li>Presiona **Ctrl + V** (o Pegar) para asentar el nuevo diseño elástico que acabas de copiar desde el generador. No agregues espacios manuales extras.</li>
+                </ol>
+            </div>
+        </div>
+        <div class="udo-modal-footer">
+            <button type="button" onclick="closeErrorModal('order')" class="udo-btn-close-modal">Volver a Ayuda</button>
+        </div>
+    </div>
+</div>
+
+<div id="udoErrorDeliveryModal" class="udo-modal-overlay udo-submodal">
+    <div class="udo-modal-content udo-error-content">
+        <div class="udo-modal-header udo-error-header">
+            <div>
+                <h2>✉️ Detalle: No llega el correo</h2>
+                <p>Verificación de retrasos y validación del servidor de red</p>
+            </div>
+            <span class="udo-modal-close" onclick="closeErrorModal('delivery')">&times;</span>
+        </div>
+        <div class="udo-modal-body udo-error-body">
+            <p class="udo-large-text">
+                El sistema de envío automático procesa tu firma a través de los servidores de Google Apps Script. A veces, las altas medidas de seguridad institucional retienen estos mensajes momentáneamente.
+            </p>
+            <div class="udo-alert-box">
+                <strong>💡 Solución Paso a Paso:</strong>
+                <ol style="margin-top: 8px; padding-left: 20px; line-height: 1.6;">
+                    <li>Revisa detalladamente tu bandeja de <b>Spam o Correos no deseados</b>; los correos automáticos suelen ser filtrados ahí por error la primera vez.</li>
+                    <li>Verifica que hayas digitado tu dirección de correo con la terminación exacta <b>@redsalud.gob.cl</b> (un solo punto o letra errónea bloqueará el puente de entrega).</li>
+                </ol>
+            </div>
+        </div>
+        <div class="udo-modal-footer">
+            <button type="button" onclick="closeErrorModal('delivery')" class="udo-btn-close-modal">Volver a Ayuda</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="script.js"></script>

@@ -371,84 +371,77 @@
 }
 
 
-/* =========================================================
-   📊 WIDGET DESPLEGABLE LATERAL PREMIUM (SITIO WEB OFICIAL)
-   ========================================================= */
-.udo-side-widget {
-    position: fixed !important;
-    top: 40% !important;
-    right: -240px !important; 
-    width: 240px !important;
-    height: auto !important;
-    background-color: #ffffff !important;
-    border: 0.1px solid #f6b01c !important;
-    border-right: none !important;
-    border-radius: 0px !important;
-    box-shadow: -10px 10px 30px rgba(15, 23, 42, 0.12) !important;
-    z-index: 99990 !important;
-    display: flex !important;
-    align-items: center !important;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    font-family: Arial, sans-serif !important;
+/* ==========================================
+   🏷️ MICRO-BANNER PARA APP DE FIRMAS
+   ========================================== */
+.micro-banner-app {
+    width: 100%;
+    height: 70px; /* Altura compacta y ejecutiva, no invade la app */
+    background-image: url('https://raw.githubusercontent.com/hspudo-Develop/Repo_IMG_HSP_Coquimbo/refs/heads/main/Banner%20Logo.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    z-index: 100;
 }
 
-.udo-side-widget:hover {
-    right: 0 !important;
+/* Filtro azul corporativo transparente */
+.micro-banner-app::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(17, 103, 164, 0.95) 0%, rgba(17, 103, 164, 0.6) 100%);
+    pointer-events: none;
 }
 
+/* Distribución interna del micro-banner */
+.micro-banner-container {
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Logo a la izquierda, título a la derecha */
+    position: relative;
+    z-index: 2;
+}
 
-.udo-side-widget-handle {
-    position: absolute !important;
-    left: -33px !important; 
-    top: -1px !important;
-    bottom: -1px !important;
-    width: 33px !important;
-    background-color: #f6b01c !important; 
-    color: #1167a4 !important;             
-    font-size: 10px !important;
-    font-weight: 900 !important;
-    letter-spacing: 0.8px !important;
-    writing-mode: vertical-rl !important;  
-    text-orientation: mixed !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 10px 0 0 10px !important;
-    cursor: pointer !important;
-    white-space: nowrap !important;
-    border: 2px solid #f6b01c !important;
-    border-right: none !important;
-    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.05) !important;
+.micro-logo-blanco {
+    height: 50px; 
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 
-.udo-side-widget-content {
-    width: 100% !important;
-    padding: 14px !important;
-    box-sizing: border-box !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background-color: #ffffff !important;
-    border-radius: 10px 0 0 10px !important;
+.espaciador-formulario {
+    height: 35px; /* Un respiro de 35px es el estándar ideal para separar cabeceras de formularios */
+    width: 100%;
+    display: block;
 }
 
-
-.udo-side-widget-content a {
-    display: block !important;
-    width: 100% !important;
-    transition: transform 0.2s ease !important;
-}
-.udo-side-widget-content a:hover {
-    transform: scale(1.03) !important; 
-}
-.udo-side-widget-content img {
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
+/* ==========================================
+   🔗 ENLACE Y ANIMACIÓN DEL LOGO
+   ========================================== */
+.micro-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* Transición idéntica a la de tu plataforma UDO */
+    transition: transform 0.3s ease; 
 }
 
-body:has(.udo-zoom-active) .udo-side-widget {
-    opacity: 0 !important;
-    pointer-events: none !important;
+/* El "latido" o acercamiento al pasar el mouse */
+.micro-logo-link:hover {
+    transform: scale(1.550); 
+}
+
+.micro-logo-blanco {
+    height: 42px; 
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }

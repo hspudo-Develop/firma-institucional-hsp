@@ -14,7 +14,7 @@ const hospitalStructure = {
     "Departamento": [
         "de Calidad y Seguridad de la Atención",
         "de Análisis Control de Gestión",
-        "de Desarrollo Institucional y Puesta en Marcha"
+        "de Desarrollo Institucional"
     ],
     "Subdepartamento": [
         "de Gestión Operacional",
@@ -24,7 +24,7 @@ const hospitalStructure = {
         "de Calidad de Vida Laboral",
         "de Abastecimiento",
         "de Gestión de Pacientes",
-        "de Gestión Química",
+        "de Gestión Quirurgica",
         "de Gestión Hospitalaria",
         "de Gestión Ambulatoria",
         "de Salud Mental"

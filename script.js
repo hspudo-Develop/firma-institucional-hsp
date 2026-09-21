@@ -25,7 +25,7 @@ const hospitalStructure = {
         "de Abastecimiento",
         "de Gestión de Pacientes",
         "de Gestión Quirurgica",
-        "de Gestión Hospitalaria",
+        "de Gestión de Hospitalización",
         "de Gestión Ambulatoria",
         "de Salud Mental"
     ]
